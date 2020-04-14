@@ -1,8 +1,8 @@
 import os
 from distutils.command.build import build
 
-from setuptools import find_packages, setup
 from django.core import management
+from setuptools import find_packages, setup
 
 try:
     with open(

@@ -16,9 +16,9 @@
 
 from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render, redirect
-from django.utils.translation import ugettext_lazy as _
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils.translation import ugettext_lazy as _
 
 from barman.acl import active_required
 from management.models import Category, Product
