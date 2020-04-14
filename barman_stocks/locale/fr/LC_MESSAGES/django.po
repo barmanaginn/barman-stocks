@@ -1,0 +1,97 @@
+# barman-stocks - plugin for barman
+# Copyright © 2020 Yoann Pietri <me@nanoy.fr>
+#
+# barman-stocks is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# barman-stocks is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with barman-stocks.  If not, see <https://www.gnu.org/licenses/>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: barman-stocks 0.1\n"
+"Report-Msgid-Bugs-To: <barman@nanoy.fr>\n"
+"POT-Creation-Date: 2020-04-14 20:53+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yoann Pietri <me@nanoy.fr>\n"
+"Language-Team: \n"
+"Language: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: __init__.py:29
+msgid "Add stocks for products"
+msgstr "Ajout des stocks pour les produits"
+
+#: __init__.py:37 templates/barman_stocks/stocks.html:4
+msgid "Stocks"
+msgstr "Stocks"
+
+#: __init__.py:52
+msgid ""
+"If True, transactions that make the stock neagtive will return an error. If "
+"False, the stock goes in negative"
+msgstr "Si vrai, les transcations qui font passer le stock en négatif retourneront une erreur. Si faux, le stock va dans le négatif"
+
+#: __init__.py:59
+msgid ""
+"If True, draft products will automatically set use_stocks to False, as a "
+"different plugin should be used."
+msgstr "Si vrai, les stocks seront atuomatiquement désactivés pour les produits pressions (un plugin différent doit être utilisé pour les pressions)."
+
+#: models.py:30 models.py:36 templates/barman_stocks/stocks.html:24
+msgid "Stock"
+msgstr "Stock"
+
+#: models.py:33 templates/barman_stocks/stocks.html:23
+#: templates/barman_stocks/stocks.html:62
+msgid "Product"
+msgstr "Produit"
+
+#: models.py:35
+msgid "Use stock"
+msgstr "Utiliser les stocks"
+
+#: signals.py:49
+msgid "The stock of the product does not authorize the operation."
+msgstr "Le stock du produit n'autorise pas l'opération."
+
+#: templates/barman_stocks/stocks.html:8 templates/barman_stocks/stocks.html:17
+#, python-format
+msgid "Stocks of category %(category)s"
+msgstr "Stocks de la catégorie %(category)s"
+
+#: templates/barman_stocks/stocks.html:10
+#: templates/barman_stocks/stocks.html:56
+msgid "Products with desactivated stocks"
+msgstr "Produits avec les stocks désactivés"
+
+#: templates/barman_stocks/stocks.html:25
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: templates/barman_stocks/stocks.html:26
+msgid "Desactivate stocks"
+msgstr "Désactiver les stocks"
+
+#: templates/barman_stocks/stocks.html:63
+msgid "Last stock value"
+msgstr "Dernière valeur du stock"
+
+#: templates/barman_stocks/stocks.html:64
+msgid "Activate stocks"
+msgstr "Activer les stocks"
+
+#: views.py:63
+msgid "Stock was updated"
+msgstr "Le stock a été mis à jour"

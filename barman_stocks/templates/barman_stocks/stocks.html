@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block entete %}{% trans "Stocks" %}{% endblock %}
+{% block navbar%}
+<ul>
+	{% for category in categories %}
+	<li><a href="#{{category}}">{% blocktrans %}Stocks of category {{category}}{% endblocktrans %}</a></li>
+	{% endfor %}
+	<li><a href="#nostock">{% trans "Products with desactivated stocks" %}</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+{% for category in categories %}
+<section id="{{category}}" class="main">
+	<header class="major">
+		<h2>{% blocktrans %}Stocks of category {{category}}{% endblocktrans %}</h2>
+	</header>
+	<div class="table-wrapper">
+		<table>
+			<thead>
+				<tr>
+					<th>{% trans "Product" %}</th>
+					<th>{% trans "Stock" %}</th>
+					<th>{% trans "Update" %}</th>
+					<th>{% trans "Desactivate stocks" %}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in category.product_set.all %}
+				{% if product.stock.use_stock %}
+				<tr id="tr-{{product.pk}}">
+					<td><a href="{% url 'management:products-detail' product.pk %}">{{ product.name }}</a></td>
+					<td id="stock-{{product.pk}}">
+						{{ product.stock.stock }}
+					</td>
+					<td id="td-{{product.pk}}">
+						<button class="update-stock" data-pk="{{product.pk}}"><i class="fa fa-marker"></i>
+						</button>
+					</td>
+					<td>
+						<a class="button small" href="{% url 'plugins:barman_stocks:switch-use-stock' product.pk %}"><i
+								class="fas fa-toggle-off"></i>
+						</a>
+					</td>
+				</tr>
+				{% endif %}
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</section>
+{% endfor %}
+<section id="nostock" class="main">
+	<header class="major">
+		<h2>{% trans "Products with desactivated stocks" %}</h2>
+	</header>
+	<div class="table-wrapper">
+		<table>
+			<thead>
+				<tr>
+					<th>{% trans "Product" %}</th>
+					<th>{% trans "Last stock value" %}</th>
+					<th>{% trans "Activate stocks" %}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in nostock_products %}
+				<tr id="tr-{{product.pk}}">
+					<td><a href="{% url 'management:products-detail' product.pk %}">{{ product.name }}</a></td>
+					<td id="stock-{{product.pk}}">
+						{{ product.stock.stock }}
+					</td>
+					<td>
+						<a class="button small" href="{% url 'plugins:barman_stocks:switch-use-stock' product.pk %}"><i
+								class="fas fa-toggle-on"></i>
+						</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</section>
+<script src="{% static 'jquery.js' %}"></script>
+<script src="{% static 'barman_stocks/stocks.js' %}"></script>
+{% endblock %}
