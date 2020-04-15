@@ -35,7 +35,7 @@ class PluginApp(BarmanPlugin):
         nav_urls = (
             {
                 "text": _("Stocks"),
-                "icon": "boxes",
+                "icon": "fas fa-boxes",
                 "link": reverse_lazy("plugins:barman_stocks:stocks"),
                 "permission": "gestion.change_product",
                 "login_required": True,
